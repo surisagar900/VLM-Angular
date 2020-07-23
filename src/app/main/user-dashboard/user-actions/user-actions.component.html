@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="my-2 col-12">
+    <h5 class="lead" translate>Account</h5>
+    <a
+      class="mat-h4 m-0 pt-2 d-block"
+      [routerLink]="['/my/profile']"
+      routerLinkActive="active-btn"
+      [routerLinkActiveOptions]="{ exact: true }"
+      translate
+    >
+      Profile
+    </a>
+    <a
+      class="mat-h4 m-0 pt-2 d-block"
+      [routerLink]="['/my/profile/edit']"
+      routerLinkActive="active-btn"
+      [routerLinkActiveOptions]="{ exact: true }"
+      translate
+    >
+      Edit Profile
+    </a>
+    <!-- <p>Change Password</p> -->
+  </div>
+
+  <mat-divider class="w-100 my-2"></mat-divider>
+
+  <div class="col-12 my-2">
+    <h5 class="lead" translate>Records</h5>
+    <a
+      class="mat-h4 m-0 pt-2 d-block"
+      [routerLink]="['/my/records']"
+      routerLinkActive="active-btn"
+      [routerLinkActiveOptions]="{ exact: true }"
+      translate
+    >
+      Rented Movies
+    </a>
+  </div>
+</div>

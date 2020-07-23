@@ -1,0 +1,39 @@
+<div id="slider" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <mat-card class="col">
+        <div class="text-overlay">
+          <div class="d-flex flex-column justify-content-end h-100 w-100">
+            <h2 class="mat-h2 m-0">
+              <!-- {{ movieData.title | titlecase }} -->
+            </h2>
+            <h3 class="mat-h3 m-0">
+              <!-- Directed by : {{ movieData.director | titlecase }} -->
+            </h3>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+    <div class="carousel-item"></div>
+    <div class="carousel-item"></div>
+  </div>
+
+  <a
+    class="carousel-control-prev nav-button-prev"
+    href="#slider"
+    role="button"
+    data-slide="prev"
+  >
+    <span><mat-icon style="font-size: 30px;">arrow_back_ios</mat-icon></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a
+    class="carousel-control-next nav-button-next"
+    href="#slider"
+    role="button"
+    data-slide="next"
+  >
+    <span><mat-icon style="font-size: 30px;">arrow_forward_ios</mat-icon></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>

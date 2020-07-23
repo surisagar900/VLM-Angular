@@ -1,0 +1,29 @@
+
+<table class="table table-striped table-bordered table-hover table-responsive">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">RecordId</th>
+      <th scope="col">Username</th>
+      <th scope="col">Full Name</th>
+      <th scope="col">Movie</th>
+      <th scope="col">Issue Date</th>
+      <th scope="col">Return Date</th>
+      <th scope="col">Fine</th>
+      <th scope="col">Due Cleared</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let record of allRecordsData; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ record.recordsId }}</td>
+      <td>{{ record.userName | titlecase }}</td>
+      <td>{{ record.fullName | titlecase }}</td>
+      <td>{{ record.moviesTitle | titlecase }}</td>
+      <td>{{ record.takenDate | date: "d-M-yyyy" }}</td>
+      <td>{{ record.returnDate | date: "d-M-yyyy" }}</td>
+      <td>{{ record.fine | currency: "INR" }}</td>
+      <td>{{ record.isCleared }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,13 @@
+<div class="col-12 pb-3" *ngIf="getAllMovies && getAllMovies.length > 0">
+  <a [routerLink]="['/list', actionType, actionName]" class="mat-h2 m-0 p-0">
+    {{ actionName | titlecase }}
+    Movies
+  </a>
+  <div class="row">
+    <app-movie-card
+      *ngFor="let movie of getAllMovies"
+      class="col-sm-3 col-md-4"
+      [movieDetail]="movie"
+    ></app-movie-card>
+  </div>
+</div>

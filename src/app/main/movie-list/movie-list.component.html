@@ -1,0 +1,11 @@
+<h1 class="mat-h1">
+  {{ movieTypeName | titlecase }}
+  Movies
+</h1>
+<div class="row">
+  <app-movie-card
+    *ngFor="let movie of getMovies"
+    class="col-sm-3 col-md-4"
+    [movieDetail]="movie"
+  ></app-movie-card>
+</div>

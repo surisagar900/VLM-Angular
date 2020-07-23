@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+button,
+button:focus,
+button:hover {
+  outline: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.logo {
+  font-size: 50px;
+  font-family: "MuseoModerno", cursive;
+  color: rgba(0, 0, 0, 0.74);
+}
+
+.logo:before {
+  content: "VLM";
+}
+
+.footer {
+  color: white;
+  background-color: #3f51b5;
+}

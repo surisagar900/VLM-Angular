@@ -1,0 +1,23 @@
+<div class="col-12 footer py-3">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col">
+        <h2 class="mat-h2">
+          VLM
+        </h2>
+        <p class="mat-caption" translate>WelcomeMessage</p>
+      </div>
+      <div class="col-1">
+        <mat-select [(value)]="selectedLang">
+          <mat-option
+            (click)="switchLanguage(lang)"
+            *ngFor="let lang of allLangs"
+            [value]="lang"
+          >
+            {{ lang }}
+          </mat-option>
+        </mat-select>
+      </div>
+    </div>
+  </div>
+</div>

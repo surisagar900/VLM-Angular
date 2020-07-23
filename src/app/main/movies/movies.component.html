@@ -1,0 +1,47 @@
+<div class="row my-5" *ngIf="movieData">
+  <mat-card class="col">
+    <div class="text-overlay">
+      <div class="d-flex flex-column justify-content-end h-100 w-100">
+        <h2 class="mat-h2 m-0">{{ movieData.title | titlecase }}</h2>
+        <h3 class="mat-h3 m-0">
+          Directed by : {{ movieData.director | titlecase }}
+        </h3>
+      </div>
+    </div>
+  </mat-card>
+  <mat-divider class="mx-3" [vertical]="true"></mat-divider>
+  <div class="col">
+    <h1 class="mat-h1 font-weight-bold">{{ movieData.title | titlecase }}</h1>
+    <div class="py-3">
+      <h3 class="mat-h3 d-inline pr-2">{{ movieData.releaseYear }}</h3>
+      <span>&diams;</span>
+      <h3 class="mat-h3 d-inline p-2">{{ movieData.language | titlecase }}</h3>
+      <span>&diams;</span>
+      <h3 class="mat-h3 d-inline p-2">{{ movieData.genre | titlecase }}</h3>
+    </div>
+    <h3 class="mat-h3">{{ movieData.description }}</h3>
+    <h3 class="mat-h3 font-weight-bold">
+      <span translate>Fine Amount</span> :
+      {{ movieData.fine | currency: "INR" }}
+    </h3>
+    <div class="alert py-1 alert-info">
+      <span translate>Rent this movie for</span> {{ movieData.returnDays }} days
+    </div>
+    <button
+      color="primary"
+      class="w-100 mb-3 py-2"
+      mat-raised-button
+      (click)="rentMovie(movieData.moviesId)"
+      [disabled]="loading"
+    >
+      Add <mat-icon>add</mat-icon>
+      <mat-spinner
+        *ngIf="loading"
+        class="pl-3 d-inline"
+        diameter="18"
+        color="warn"
+      >
+      </mat-spinner>
+    </button>
+  </div>
+</div>

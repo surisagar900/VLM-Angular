@@ -1,0 +1,25 @@
+<app-top-navbar></app-top-navbar>
+<div class="container">
+  <div class="row my-3">
+    <div class="col-2">
+      <div class="my-2">
+        <a mat-raised-button [routerLink]="['/admin/users']">All Users</a>
+      </div>
+      <div class="my-2">
+        <a mat-raised-button [routerLink]="['/admin/movies']">All Movies</a>
+      </div>
+      <div class="my-2">
+        <a mat-raised-button [routerLink]="['/admin/records']">All Records</a>
+      </div>
+      <mat-divider class="w-100 my-3"></mat-divider>
+      <div class="my-2">
+        <a mat-raised-button [routerLink]="['/admin/addMovie']"
+          >Add new movie</a
+        >
+      </div>
+    </div>
+    <div class="col">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

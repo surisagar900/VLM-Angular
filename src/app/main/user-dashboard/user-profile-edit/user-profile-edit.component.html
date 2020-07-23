@@ -1,0 +1,137 @@
+<div class="row m-3">
+  <div class="col-12">
+    <h1 class="mat-h1 m-0 p-0" translate>Edit Profile</h1>
+    <mat-divider class="w-100 position-relative my-2"></mat-divider>
+  </div>
+  <mat-card-content>
+    <div class="col-xs-9 col-md-6 my-3">
+      <form (ngSubmit)="onSubmit()" [formGroup]="EditForm">
+        <div class="row">
+          <mat-form-field class="col-12 mb-2" appearance="outline">
+            <mat-label translate>Username</mat-label>
+            <input
+              required
+              formControlName="username"
+              matInput
+              placeholder="Enter username"
+            />
+            <mat-icon matSuffix>account_circle</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="col-12 mb-2" appearance="outline">
+            <mat-label translate>First Name</mat-label>
+            <input
+              required
+              formControlName="firstname"
+              matInput
+              placeholder="Enter first name"
+            />
+            <mat-icon matSuffix>create</mat-icon>
+            <mat-error
+              *ngIf="
+                !EditForm.get('firstname').hasError('required') &&
+                EditForm.get('firstname').errors
+              "
+            >
+              <p>No numbers and spaces</p>
+            </mat-error>
+            <mat-error *ngIf="EditForm.get('firstname').hasError('required')">
+              <p>First name is required</p>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="col-12 mb-2" appearance="outline">
+            <mat-label translate>Last Name</mat-label>
+            <input
+              required
+              formControlName="lastname"
+              matInput
+              placeholder="Enter last name"
+            />
+            <mat-icon matSuffix>create</mat-icon>
+            <mat-error
+              *ngIf="
+                !EditForm.get('lastname').hasError('required') &&
+                EditForm.get('lastname').errors
+              "
+            >
+              <p>No numbers and spaces</p>
+            </mat-error>
+            <mat-error *ngIf="EditForm.get('lastname').hasError('required')">
+              <p>Last name is required</p>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="col-12 mb-2" appearance="outline">
+            <mat-label translate>Email</mat-label>
+            <input
+              required
+              formControlName="email"
+              matInput
+              placeholder="Enter email"
+            />
+            <mat-icon matSuffix>alternate_email</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="col-12 mb-2" appearance="outline">
+            <mat-label translate>Date of birth</mat-label>
+            <input
+              required
+              formControlName="dob"
+              matInput
+              placeholder="Enter date of birth"
+              [matDatepicker]="picker"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker [disabled]="false"></mat-datepicker>
+            <mat-hint translate>
+              you can change it
+            </mat-hint>
+            <mat-error *ngIf="EditForm.get('dob').hasError('required')">
+              <p>Date of Birth is required</p>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="col-12 mb-2" appearance="outline">
+            <mat-label translate>Phone Number</mat-label>
+            <input
+              type="number"
+              required
+              formControlName="phone"
+              matInput
+              placeholder="Enter Phone Number"
+            />
+            <mat-icon matSuffix>phone_enabled</mat-icon>
+          </mat-form-field>
+
+          <p class="col-12 text-danger text-center" *ngIf="errors">
+            {{ errors }}
+          </p>
+
+          <div class="col-12">
+            <button
+              class="col-12"
+              mat-raised-button
+              color="primary"
+              type="submit"
+              [disabled]="EditForm.invalid || loading"
+            >
+              <span translate>
+                Save
+              </span>
+              <mat-spinner
+                *ngIf="loading"
+                class="pl-3 d-inline"
+                diameter="18"
+                color="warn"
+              ></mat-spinner>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </mat-card-content>
+</div>

@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="mat-h2 m-0 p-0 font-weight-bold" translate>Account</h2>
+      <h4 class="mat-h4 mat-small m-0 p-0">
+        {{ username | lowercase }}
+      </h4>
+    </div>
+    <mat-divider class="w-100 my-2"></mat-divider>
+    <div class="col-12">
+      <div class="row">
+        <div class="col-3">
+          <app-user-actions></app-user-actions>
+        </div>
+        <mat-divider class="col-1" vertical class="mx-1"></mat-divider>
+        <div class="col">
+          <mat-card class="col-12 my-2">
+            <router-outlet></router-outlet>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

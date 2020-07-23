@@ -1,0 +1,81 @@
+<div class="col-12">
+  <div class="example-action-buttons">
+    <button mat-button (click)="accordion.openAll()">
+      <span translate>Expand All</span>
+    </button>
+    <button mat-button (click)="accordion.closeAll()">
+      <span translate>Collapse All</span>
+    </button>
+  </div>
+  <mat-accordion class="my-2" multi>
+    <mat-expansion-panel *ngFor="let item of userRecords">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h4 class="mat-h4 m-0 p-0">
+            <span translate>Record No.</span> &nbsp;
+            <strong>{{ item.recordsId }}</strong>
+          </h4>
+        </mat-panel-title>
+        <mat-panel-description>
+          <p class="m-0 p-0 mat-caption" translate>
+            {{ item.isCleared ? "Returned" : "" }}
+          </p>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="row">
+        <div class="col-12">
+          <p class="mat-h2 m-0 p-0">
+            {{ item.movieTitle | titlecase }}
+          </p>
+        </div>
+        <mat-divider class="position-relative w-100 my-2"></mat-divider>
+        <div class="col-6">
+          <p class="mat-h3 m-0 p-0">
+            <span translate>Issue Date</span> :
+            {{ item.takenDate | date: "dd/MM/yyyy" }}
+          </p>
+        </div>
+        <div class="col-6">
+          <p class="mat-h3 m-0 p-0">
+            <span translate>Return Date</span> :
+            {{ item.returnDate | date: "dd/MM/yyyy" }}
+          </p>
+        </div>
+        <mat-divider class="position-relative w-100 my-2"></mat-divider>
+        <div class="col-12">
+          <div class="row justify-content-between">
+            <div class="col-4">
+              <p class="mat-h3 m-0 p-0">
+                <span translate>Fine</span> :
+                <strong>{{ item.fine | currency: "INR" }}</strong>
+              </p>
+            </div>
+            <div class="col-4">
+              <button
+                *ngIf="!item.isCleared; else returned"
+                mat-raised-button
+                color="primary"
+                [disabled]="loading"
+                (click)="onReturn(item.recordsId)"
+              >
+                <span translate>Return</span>
+                <mat-spinner
+                  *ngIf="loading"
+                  class="pl-3 d-inline"
+                  diameter="18"
+                  color="warn"
+                >
+                </mat-spinner>
+              </button>
+              <ng-template #returned>
+                <button mat-flat-button disabled>
+                  <span translate>Returned</span>
+                </button>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

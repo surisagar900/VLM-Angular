@@ -1,0 +1,17 @@
+<a [routerLink]="['/movies', movieDetail.title.toLowerCase()]">
+  <mat-card
+    style="background-image: url('https://wallpapercave.com/wp/wp4770368.jpg');"
+  >
+    <div class="text-overlay p-2">
+      <div
+        class="d-flex flex-column justify-content-end flex-nowrap h-100 w-100"
+      >
+        <div class="d-flex justify-content-between align-items-end">
+          <h2 class="mat-h2 m-0">{{ movieDetail.title | titlecase }}</h2>
+          <h3 class="mat-h3 m-0">{{ movieDetail.releaseYear }}</h3>
+        </div>
+        <h6 class="mat-h4 m-0">{{ movieDetail.description | textshort }}</h6>
+      </div>
+    </div>
+  </mat-card>
+</a>

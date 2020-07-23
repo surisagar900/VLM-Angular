@@ -1,0 +1,47 @@
+<mat-toolbar color="primary">
+  <div class="container">
+    <div class="row justify-content-between">
+      <a routerLink="">
+        <span class="navbar-brand logo"></span>
+      </a>
+      <div *ngIf="!isLoggedIn; else loggedIn">
+        <a class="nav-btn" mat-flat-button color="primary" routerLink="/login">
+          <mat-icon>login</mat-icon>
+          <p class="mat-h6 m-0 p-0" translate>Login</p>
+        </a>
+        <a
+          class="nav-btn"
+          mat-flat-button
+          color="primary"
+          routerLink="/register"
+        >
+          <mat-icon>person_add_alt_1</mat-icon>
+          <p class="mat-h6 m-0 p-0" translate>Register</p>
+        </a>
+      </div>
+      <ng-template #loggedIn>
+        <div>
+          <a
+            class="nav-btn"
+            mat-flat-button
+            color="primary"
+            routerLink="/my/profile"
+          >
+            <mat-icon>person_outline</mat-icon>
+            <p class="mat-h6 m-0 p-0" translate>Profile</p>
+          </a>
+          <a
+            role="button"
+            (click)="onLogoutBtn()"
+            class="nav-btn"
+            mat-flat-button
+            color="primary"
+          >
+            <mat-icon>exit_to_app</mat-icon>
+            <p class="mat-h6 m-0 p-0" translate>Logout</p>
+          </a>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</mat-toolbar>
