@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
+import { movie } from "src/app/main/movies.service";
 
 @Component({
   selector: "app-movies-table",
@@ -10,12 +11,12 @@ import { environment } from "src/environments/environment";
 export class MoviesTableComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
-  allMoviesData: any;
+  allMoviesData: movie[] = [];
 
   private configURL = environment.BaseURL + "movies";
 
   ngOnInit() {
-    this.http.get(this.configURL).subscribe((res) => {
+    this.http.get<movie[]>(this.configURL).subscribe((res) => {
       this.allMoviesData = res;
     });
   }

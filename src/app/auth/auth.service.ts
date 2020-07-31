@@ -126,6 +126,9 @@ export class AuthService {
       case "INCORRECT_PASSWORD":
         errorMessage = "Password is invalid";
         break;
+      case "INVALID_CREDENTIALS":
+        errorMessage = "Invalid Credentials";
+        break;
       case "USER_ALREADY_EXIST":
         errorMessage = "User already exist";
         break;

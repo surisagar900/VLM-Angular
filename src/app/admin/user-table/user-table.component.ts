@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
+import { UserResponse } from "src/app/main/user.service";
 
 @Component({
   selector: "app-user-table",
@@ -10,13 +11,13 @@ import { environment } from "src/environments/environment";
 export class UserTableComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
-  allUserData: any;
+  allUserData: UserResponse[] = [];
 
   private configURL = environment.BaseURL + "user";
 
   ngOnInit() {
     this.http
-      .get(this.configURL, {
+      .get<UserResponse[]>(this.configURL, {
         params: { showDeleted: "true" },
       })
       .subscribe((res) => (this.allUserData = res));
