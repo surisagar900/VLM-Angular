@@ -37,7 +37,7 @@
       "name": "home",
       "urls": [
         "http://localhost:5000/api/movies",
-        "http://localhost:5000/api/movies/*"
+        "http://localhost:5000/api/movies?*"
       ],
       "cacheConfig": {
         "maxSize": 10,
